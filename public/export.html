@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Missis - Sessão de Beleza Gratuita</title>
+    <meta name="description" content="Inscreve-te para poderes ganhar uma sessão de beleza gratuita com Missis, incluindo maquilhagem, penteado e uma sessão fotográfica." />
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Meta tags -->
+    <meta property="og:title" content="Missis - Sessão de Beleza Gratuita" />
+    <meta property="og:description" content="Inscreve-te para ganhar uma sessão de beleza gratuita com Missis! Inclui maquilhagem, penteado e sessão fotográfica profissional." />
+    <meta property="og:type" content="website" />
+    
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    
+    <style>
+      :root {
+        --primary: #FF5A8C;
+        --secondary: #8A2BE2;
+        --accent: #FFC0CB;
+        --text: #333333;
+        --bg-color: #ffffff;
+        --light-bg: #f8f8f8;
+        --border: #e0e0e0;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--text);
+        background-color: #f5f5f5;
+        line-height: 1.6;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Playfair Display', serif;
+        color: var(--secondary);
+      }
+      
+      .container {
+        max-width: 480px;
+        margin: 0 auto;
+        background-color: var(--bg-color);
+        min-height: 100vh;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        position: relative;
+        overflow: hidden;
+      }
+      
+      .header {
+        position: relative;
+      }
+      
+      .header-image {
+        height: 160px;
+        width: 100%;
+        object-fit: cover;
+        position: relative;
+      }
+      
+      .header-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(to bottom, rgba(255, 90, 140, 0.3), rgba(138, 43, 226, 0.5));
+      }
+      
+      .logo {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        width: 96px;
+        height: 96px;
+        border-radius: 50%;
+        border: 4px solid white;
+        overflow: hidden;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      }
+      
+      .logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .content {
+        padding: 60px 24px 24px;
+        text-align: center;
+      }
+      
+      .title {
+        font-size: 28px;
+        margin-bottom: 16px;
+        color: var(--secondary);
+      }
+      
+      .subtitle {
+        font-size: 16px;
+        color: var(--text);
+        margin-bottom: 24px;
+      }
+      
+      .card {
+        background-color: var(--bg-color);
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        padding: 16px;
+        margin-bottom: 24px;
+        border: 1px solid var(--border);
+      }
+      
+      .services {
+        display: flex;
+        justify-content: space-around;
+        margin: 16px 0;
+      }
+      
+      .service {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      .service-icon {
+        color: var(--primary);
+        font-size: 24px;
+        margin-bottom: 8px;
+      }
+      
+      .photos {
+        display: flex;
+        overflow-x: auto;
+        gap: 16px;
+        padding: 8px 0;
+        scrollbar-width: none;
+        margin-bottom: 24px;
+      }
+      
+      .photos::-webkit-scrollbar {
+        display: none;
+      }
+      
+      .photo {
+        width: 128px;
+        height: 160px;
+        flex-shrink: 0;
+        border-radius: 8px;
+        overflow: hidden;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      
+      .photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      
+      .cta-button {
+        display: block;
+        background-color: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        padding: 12px 24px;
+        font-size: 16px;
+        font-weight: bold;
+        text-decoration: none;
+        text-align: center;
+        margin: 24px 0;
+        box-shadow: 0 4px 12px rgba(255, 90, 140, 0.3);
+        transition: transform 0.3s, background-color 0.3s;
+      }
+      
+      .cta-button:hover {
+        background-color: #ff4681;
+        transform: scale(1.05);
+      }
+      
+      .contact {
+        margin-top: 32px;
+        border-top: 1px solid var(--border);
+        padding-top: 20px;
+      }
+      
+      .contact-title {
+        font-size: 18px;
+        margin-bottom: 16px;
+      }
+      
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-bottom: 24px;
+      }
+      
+      .contact-item {
+        display: flex;
+        align-items: center;
+        color: var(--text);
+        text-decoration: none;
+        padding: 8px;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+      }
+      
+      .contact-item:hover {
+        background-color: var(--light-bg);
+      }
+      
+      .contact-icon {
+        margin-right: 8px;
+      }
+      
+      .footer {
+        background-color: var(--bg-color);
+        border-top: 1px solid var(--border);
+        padding: 16px 24px;
+        text-align: center;
+        font-size: 14px;
+        color: #666;
+      }
+      
+      .copyright {
+        margin-bottom: 8px;
+      }
+      
+      .app-info {
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <header class="header">
+        <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=300" alt="Sessão de beleza e maquilhagem" class="header-image">
+        <div class="header-overlay"></div>
+        <div class="logo">
+          <img src="https://pixabay.com/get/gcaf07b2350bb9a8d432872f15e2c0a7b251e01177c330efb15a62894994d4fe86cc94532ee98bd7e65184be15166edb060663fb693e6cce9b744599d0a6496a5_1280.jpg" alt="Logo Missis">
+        </div>
+      </header>
+      
+      <main class="content">
+        <h1 class="title">Missis Beauty Session</h1>
+        <p class="subtitle">Inscreve-te para poderes ganhar uma sessão de beleza, completamente gratuita!</p>
+        
+        <div class="card">
+          <p><strong>A sessão inclui:</strong></p>
+          <div class="services">
+            <div class="service">
+              <i class="fas fa-paint-brush service-icon"></i>
+              <span>Maquilhagem</span>
+            </div>
+            <div class="service">
+              <i class="fas fa-cut service-icon"></i>
+              <span>Penteado</span>
+            </div>
+            <div class="service">
+              <i class="fas fa-camera service-icon"></i>
+              <span>Fotografia</span>
+            </div>
+          </div>
+        </div>
+        
+        <h2 style="font-size: 20px; margin-bottom: 12px;">Resultados Incríveis</h2>
+        <div class="photos">
+          <div class="photo">
+            <img src="https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=400" alt="Sessão de beleza exemplo">
+          </div>
+          <div class="photo">
+            <img src="https://images.unsplash.com/photo-1526045478516-99145907023c?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=400" alt="Resultado de maquilhagem">
+          </div>
+          <div class="photo">
+            <img src="https://images.unsplash.com/photo-1523263685509-57c1d050d19b?ixlib=rb-4.0.3&auto=format&fit=crop&w=300&h=400" alt="Sessão fotográfica profissional">
+          </div>
+        </div>
+        
+        <a href="CURRENT_URL_PLACEHOLDER" class="cta-button">Inscreve-te Agora!</a>
+        
+        <p style="font-size: 14px; color: #666;">Não percas esta oportunidade única para te sentires mais bonita!</p>
+        
+        <div class="contact">
+          <h3 class="contact-title">Contactos</h3>
+          <div class="contact-grid">
+            <a href="https://www.instagram.com/missis.mkup/" target="_blank" class="contact-item">
+              <i class="fab fa-instagram contact-icon"></i> Instagram
+            </a>
+            <a href="https://www.facebook.com/missis.mkup/" target="_blank" class="contact-item">
+              <i class="fab fa-facebook contact-icon"></i> Facebook
+            </a>
+            <a href="https://wa.me/351913708223" target="_blank" class="contact-item">
+              <i class="fab fa-whatsapp contact-icon"></i> 913708223
+            </a>
+            <a href="mailto:missis.mkup@gmail.com" class="contact-item">
+              <i class="fas fa-envelope contact-icon"></i> E-mail
+            </a>
+          </div>
+        </div>
+      </main>
+      
+      <footer class="footer">
+        <p class="copyright">© <span id="current-year">2025</span> Missis</p>
+        <p class="app-info">Aplicativo desenvolvido para partilha no WhatsApp</p>
+      </footer>
+    </div>
+    
+    <script>
+      // Atualizar o ano atual no rodapé
+      document.getElementById('current-year').textContent = new Date().getFullYear();
+      
+      // Substituir o placeholder URL com o URL atual
+      document.addEventListener('DOMContentLoaded', function() {
+        const currentUrl = window.location.href.split('?')[0];
+        const baseUrl = currentUrl.substring(0, currentUrl.lastIndexOf('/'));
+        const appUrl = baseUrl;
+        
+        const ctaButton = document.querySelector('.cta-button');
+        if (ctaButton) {
+          ctaButton.href = appUrl;
+        }
+      });
+    </script>
+  </body>
+</html>
